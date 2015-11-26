@@ -3,10 +3,10 @@
 #include "token.h"
 
 typedef enum {
-  DOT_STATUS,
-  INT_PART_STATUS,
-  FRAC_PART_STATUS,
-  INIT_STATUS
+    DOT_STATUS,
+    INT_PART_STATUS,
+    FRAC_PART_STATUS,
+    INIT_STATUS
 } TokenStatus;
 
 static int indexOfLine;
@@ -14,15 +14,15 @@ static char* inputLine;
 
 int getToken(Token* token)
 {
-  char currentChar;
-  int indexOfToken;
-  TokenStatus status;
+    char currentChar;
+    int indexOfToken;
+    TokenStatus status;
 
-  status = INIT_STATUS;
-  indexOfToken = 0;
+    status = INIT_STATUS;
+    indexOfToken = 0;
 
-  for ( ; ; )
-  {
+    for ( ; ; )
+    {
     currentChar = inputLine[indexOfLine];
 
     if ((status == INT_PART_STATUS || status == FRAC_PART_STATUS) 
@@ -105,12 +105,12 @@ int getToken(Token* token)
         {
           return BAD_CHAR;
         }
+      }
     }
-  }
 }
 
 void initLine(char* line)
 {
-  inputLine = line;
-  indexOfLine = 0;
+    inputLine = line;
+    indexOfLine = 0;
 }

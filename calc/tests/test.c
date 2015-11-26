@@ -2,6 +2,6 @@
 
 int main(int argc, char const *argv[])
 {
-  test_lex();
-  return 0;
+    test_lex();
+    return 0;
 }
