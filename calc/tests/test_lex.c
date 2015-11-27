@@ -28,6 +28,9 @@ void test_lex()
     assert(token.type == NUMBER_TOKEN);
     assert(token.value == 2);
 
+    n = getToken(&token);
+    assert(token.type == END_OF_LINE_TOKEN);
+
     line = "  1   +   2   ";
     initLine(line);
     n = getToken(&token);
@@ -45,6 +48,9 @@ void test_lex()
     assert(token.type == NUMBER_TOKEN);
     assert(token.value == 2);
 
+    n = getToken(&token);
+    assert(token.type == END_OF_LINE_TOKEN);
+    
     line = "  1 + 1. 2 ";
     initLine(line);
     n = getToken(&token);

@@ -1,13 +1,6 @@
 #include <stdio.h>
 
-#include "token.h"
-
-typedef enum {
-    DOT_STATUS,
-    INT_PART_STATUS,
-    FRAC_PART_STATUS,
-    INIT_STATUS
-} TokenStatus;
+#include "lex.h"
 
 static int indexOfLine;
 static char* inputLine;
