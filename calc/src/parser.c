@@ -41,7 +41,7 @@ int parseGetToken(Token* token)
     {
         if ((n = getToken(token)) != SUCCESS)
         {
-            logInfo("%s\n", errorMsg[n]);
+            printf("%s\n", errorMsg[n]);
             exit(1);
         }
     }
@@ -94,7 +94,7 @@ double parseTerm()
 
     if (token.type != NUMBER_TOKEN)
     {
-        logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+        printf("%s\n", errorMsg[SYNTAX_ERROR]);
         exit(1);        
     }
 
@@ -127,7 +127,7 @@ double parseTerm()
                 return value1;
                 break;
             default:
-                logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+                printf("%s\n", errorMsg[SYNTAX_ERROR]);
                 exit(1);              
                 break;
         }
@@ -137,7 +137,7 @@ double parseTerm()
         parsePrimaryTerm(&token);
         if (token.type != NUMBER_TOKEN)
         {
-            logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+            printf("%s\n", errorMsg[SYNTAX_ERROR]);
             exit(1);             
         }
 
@@ -183,23 +183,23 @@ double parseLine()
                 // missing right parenthesis
                 if (isInParenthesis)
                 {
-                    logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+                    printf("%s\n", errorMsg[SYNTAX_ERROR]);
                     exit(1);                    
                 }
                 return value1;
             case RIGHT_PARENTHESIS_TOKEN:
                 if (!isInParenthesis)
                 {
-                    logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+                    printf("%s\n", errorMsg[SYNTAX_ERROR]);
                     exit(1);                  
                 }
 
                 isInParenthesis = 0;
                 return value1;
             case NUMBER_TOKEN:
-                logInfo("%s\n", errorMsg[SYNTAX_ERROR]);
+                printf("%s\n", errorMsg[SYNTAX_ERROR]);
                 exit(1);            
-                break;
+                break;                
         }
 
         value2 = parseTerm();
