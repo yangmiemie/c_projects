@@ -96,7 +96,20 @@ int getToken(Token* token)
         }
         else
         {
-          return BAD_CHAR;
+          if (currentChar == '(')
+          {
+            token -> type = LEFT_PARENTHESIS_TOKEN;
+            return SUCCESS;
+          }
+          else if (currentChar == ')')
+          {
+            token -> type = RIGHT_PARENTHESIS_TOKEN;
+            return SUCCESS;
+          }
+          else
+          {
+            return BAD_CHAR;            
+          }
         }
       }
     }
