@@ -39,5 +39,30 @@ void test_parser()
 
     line = "3 / 4 * 2 + 4 * 9 / 3";
     value = parseLine(line);
-    assert(value == 13.5);      
+    assert(value == 13.5);    
+
+    line = "-1 + 2";
+    value = parseLine(line);
+    assert(value == 1);  
+
+    line = "-3 * 4";
+    value = parseLine(line);
+    assert(value == -12);
+
+    line = "-3 * 4 * 2 / 4";
+    value = parseLine(line);
+    assert(value == -6);
+
+    line = "-3 * 4 + 2 / 4";
+    value = parseLine(line);
+    assert(value == -11.5);
+
+    line = "-3 + 4 + 2 / 4";
+    value = parseLine(line);
+    assert(value == 1.5);
+
+    line = "-3 - 4 + 2 / 4";
+    value = parseLine(line);
+    assert(value == -6.5);    
+
 }
